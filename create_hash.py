@@ -1,4 +1,8 @@
 import hashlib
-password = "hello123"
-hashed = hashlib.md5(password.encode()).hexdigest()
-print("Hashed password:", hashed)
+ 
+word = "hello123"          # change this to whatever word you want to hash
+algorithm = "md5"          # options: md5, sha1, sha256, sha512
+ 
+h = hashlib.new(algorithm)
+h.update(word.encode())
+print(f"{algorithm.upper()} hash of '{word}': {h.hexdigest()}")
